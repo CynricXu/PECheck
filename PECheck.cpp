@@ -36,11 +36,12 @@ void usege() {
 	cout << "Example:" << endl;
 	cout << "\t .\\PECheck.exe \"C:\\\\Windows\\\\notepad.exe\"" << endl;
 	cout << "\t .\\PECheck.exe -f \"C:\\\\Windows\\\\notepad.exe\"" << endl;
+	cout << "\t .\\PECheck.exe \"C:\\\\Windows\\\\System32\"" << endl;
 	cout << "\t .\\PECheck.exe -d \"C:\\\\Windows\\\\System32\"" << endl << endl;
 }
 
 void version() {
-	cout << "PECheck v1.0 by Cynric." << endl << endl;
+	cout << "PECheck v1.1 by Cynric." << endl << endl;
 }
 
 
@@ -334,6 +335,26 @@ void CheckModulesInDirectory(char* path) {
 }
 
 
+void CheckPath(char* path) {
+	if (path[strlen(path) - 1] == '\"') {
+		path[strlen(path) - 1] = '\\';
+	} //fix path
+	struct stat s;
+	if (stat(path, &s) == 0) {
+		if (s.st_mode & S_IFDIR) {
+			CheckModulesInDirectory(path);
+		}
+		else if (s.st_mode & S_IFREG) {
+			cout << "File: " << path << endl;
+			CheckModules(path);
+			cout << "" << endl;
+		}
+	}
+	else {
+		cout << "Error: unkown path." << endl << endl;
+	}
+}
+
 int main(int argc, char* argv[])
 {
 	cout << "" << endl;
@@ -368,8 +389,6 @@ int main(int argc, char* argv[])
 		cout << "" << endl;
 	}
 	else {
-		cout << "File: " << argv[1] << endl;
-		CheckModules(argv[1]);
-		cout << "" << endl;
+		CheckPath(argv[1]);
 	}
 }
