@@ -31,11 +31,16 @@ void usege() {
 	cout << "\t options:" << endl;
 	cout << "\t    -f,--file" << endl;
 	cout << "\t    -d,--directory" << endl;
-	cout << "\t    -h,--help" << endl << endl;
+	cout << "\t    -h,--help" << endl;
+	cout << "\t    -v,--version" << endl << endl;
 	cout << "Example:" << endl;
 	cout << "\t .\\PECheck.exe \"C:\\\\Windows\\\\notepad.exe\"" << endl;
 	cout << "\t .\\PECheck.exe -f \"C:\\\\Windows\\\\notepad.exe\"" << endl;
 	cout << "\t .\\PECheck.exe -d \"C:\\\\Windows\\\\System32\"" << endl << endl;
+}
+
+void version() {
+	cout << "PECheck v1.0 by Cynric." << endl << endl;
 }
 
 
@@ -351,6 +356,10 @@ int main(int argc, char* argv[])
 	}
 	else if (!strcmp(argv[1], "-h") || !strcmp(argv[1], "-H") || !strcmp(argv[1], "--help")) {
 		usege();
+		return 0;
+	}
+	else if (!strcmp(argv[1], "-v") || !strcmp(argv[1], "-V") || !strcmp(argv[1], "--version")) {
+		version();
 		return 0;
 	}
 	else if (!strcmp(argv[1], "-f") || !strcmp(argv[1], "-F") || !strcmp(argv[1], "--file")) {
