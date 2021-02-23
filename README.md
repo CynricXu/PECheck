@@ -1,7 +1,7 @@
 # PECheck
 Check Windows PE file protection, including SAFESEH, ASLR, DEP, GS, CFG, Signatrue.
 <p align="center">
-  <a title="'Build' workflow Status" href="https://github.com/CynricXu/PECheck/actions?query=workflow%3ABuild"><img alt="'Build' workflow Status" src="https://img.shields.io/github/workflow/status/CynricXu/PECheck/Build?longCache=true&style=for-the-badge&label=Build&logoColor=fff&logo=GitHub%20Actions"></a>
+  <a title="'Build' workflow Status" href="https://github.com/CynricXu/PECheck/actions?query=workflow/MSBuild"><img alt="'Build' workflow Status" src="https://img.shields.io/github/workflow/status/CynricXu/PECheck/MSBuild?longCache=true&style=for-the-badge&label=Build&logoColor=fff&logo=GitHub%20Actions"></a>
 </p>
 ## Usege:
          .\PECheck.exe [options] path
