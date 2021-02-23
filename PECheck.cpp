@@ -46,7 +46,7 @@ void version() {
 
 
 char* CheckSignature(char const* path) {
-	char* retVal = STATUS_ERR;
+	const char* retVal = STATUS_ERR;
 	LONG lStatus;
 	DWORD dwLastError;
 
@@ -202,11 +202,11 @@ void CheckModules(char const* filepath) {
 			usege();
 		}
 		else {
-			char* has_ASLR = STATUS_ERR;
-			char* has_SAFESEH = STATUS_ERR;
-			char* has_DEP = STATUS_ERR;
-			char* has_GS = STATUS_ERR;
-			char* has_CFG = STATUS_ERR;
+			const char* has_ASLR = STATUS_ERR;
+			const char* has_SAFESEH = STATUS_ERR;
+			const char* has_DEP = STATUS_ERR;
+			const char* has_GS = STATUS_ERR;
+			const char* has_CFG = STATUS_ERR;
 
 			PIMAGE_DOS_HEADER dosHeader = (PIMAGE_DOS_HEADER)lpFileBase;
 
@@ -288,13 +288,13 @@ void CheckModules(char const* filepath) {
 				}
 			}
 
-			cout << "\t©¦ " << endl;
-			cout << "\t©À " << "SAFESEH:\t" << has_SAFESEH << endl;
-			cout << "\t©À " << "DEP:    \t" << has_DEP << endl;
-			cout << "\t©À " << "ASLR:   \t" << has_ASLR << endl;
-			cout << "\t©À " << "GS:     \t" << has_GS << endl;
-			cout << "\t©À " << "CFG:    \t" << has_CFG << endl;
-			cout << "\t©¸ " << "Signatrue:\t" << CheckSignature(filepath) << endl;
+			cout << "\tÂ©Â¦ " << endl;
+			cout << "\tÂ©Ã€ " << "SAFESEH:\t" << has_SAFESEH << endl;
+			cout << "\tÂ©Ã€ " << "DEP:    \t" << has_DEP << endl;
+			cout << "\tÂ©Ã€ " << "ASLR:   \t" << has_ASLR << endl;
+			cout << "\tÂ©Ã€ " << "GS:     \t" << has_GS << endl;
+			cout << "\tÂ©Ã€ " << "CFG:    \t" << has_CFG << endl;
+			cout << "\tÂ©Â¸ " << "Signatrue:\t" << CheckSignature(filepath) << endl;
 
 		}
 
@@ -324,7 +324,7 @@ void CheckModulesInDirectory(char* path) {
 			string finalpath;
 			if (!strcmp(".exe", PathFindExtensionA(fileInfo.name)) || !strcmp(".dll", PathFindExtensionA(fileInfo.name))) {
 				finalpath = string(path) + string("\\") + string(fileInfo.name);
-				cout << "©¤©¤©¤ " << fileInfo.name << endl;
+				cout << "Â©Â¤Â©Â¤Â©Â¤ " << fileInfo.name << endl;
 				CheckModules(finalpath.c_str());
 				cout << "" << endl;
 			}
