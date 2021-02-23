@@ -45,7 +45,7 @@ void version() {
 }
 
 
-char* CheckSignature(char const* path) {
+char const* CheckSignature(char const* path) {
 	const char* retVal = STATUS_ERR;
 	LONG lStatus;
 	DWORD dwLastError;
